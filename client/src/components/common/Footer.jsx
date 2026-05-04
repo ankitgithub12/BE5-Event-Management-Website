@@ -54,9 +54,9 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/5 bg-[#060610]">
+    <footer className="relative border-t border-gray-200 bg-gray-50">
       {/* Glow top edge */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
@@ -70,7 +70,7 @@ export default function Footer() {
                 <span className="text-gradient-gold"> Events</span>
               </span>
             </Link>
-            <p className="text-sm text-[#A89BC2] leading-relaxed mb-6">
+            <p className="text-sm text-gray-600 leading-relaxed mb-6">
               Where Every Event Becomes a Story. Premium wedding &amp; event management in Jaipur, Rajasthan.
             </p>
             <div className="flex gap-3">
@@ -79,7 +79,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 flex items-center justify-center rounded-full glass-card text-[#A89BC2] hover:text-white hover:border-violet-500/50 transition-all duration-200"
+                  className="w-9 h-9 flex items-center justify-center rounded-full glass-card border-gray-200 text-gray-600 hover:text-gray-900 hover:border-violet-500/50 transition-all duration-200"
                 >
                   <Icon size={16} />
                 </a>
@@ -89,13 +89,13 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-5 tracking-wider uppercase">Quick Links</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-5 tracking-wider uppercase">Quick Links</h3>
             <ul className="space-y-3">
               {QUICK_LINKS.map(({ label, to }) => (
                 <li key={to}>
                   <Link
                     to={to}
-                    className="text-sm text-[#A89BC2] hover:text-[#D4AF37] transition-colors duration-200 flex items-center gap-1.5"
+                    className="text-sm text-gray-600 hover:text-[#D4AF37] transition-colors duration-200 flex items-center gap-1.5"
                   >
                     <span className="w-1 h-1 rounded-full bg-violet-500 inline-block" />
                     {label}
@@ -107,13 +107,13 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-5 tracking-wider uppercase">Our Services</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-5 tracking-wider uppercase">Our Services</h3>
             <ul className="space-y-3">
               {SERVICES_LINKS.map((s) => (
                 <li key={s}>
                   <Link
                     to="/services"
-                    className="text-sm text-[#A89BC2] hover:text-[#D4AF37] transition-colors duration-200 flex items-center gap-1.5"
+                    className="text-sm text-gray-600 hover:text-[#D4AF37] transition-colors duration-200 flex items-center gap-1.5"
                   >
                     <span className="w-1 h-1 rounded-full bg-[#D4AF37] inline-block" />
                     {s}
@@ -125,35 +125,35 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-5 tracking-wider uppercase">Contact Us</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-5 tracking-wider uppercase">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Phone size={16} className="text-violet-400 mt-0.5 shrink-0" />
+                <Phone size={16} className="text-violet-600 mt-0.5 shrink-0" />
                 <div>
-                  <a href="tel:+919876543210" className="text-sm text-[#A89BC2] hover:text-white transition-colors block">+91 98765 43210</a>
-                  <a href="tel:+919876543210" className="text-sm text-[#A89BC2] hover:text-white transition-colors block">+91 98765 43210</a>
+                  <a href="tel:+919876543210" className="text-sm text-gray-600 hover:text-gray-900 transition-colors block">+91 98765 43210</a>
+                  <a href="tel:+919876543210" className="text-sm text-gray-600 hover:text-gray-900 transition-colors block">+91 98765 43210</a>
                 </div>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={16} className="text-violet-400 shrink-0" />
-                <a href="mailto:hello@be5eventery.com" className="text-sm text-[#A89BC2] hover:text-white transition-colors">
+                <Mail size={16} className="text-violet-600 shrink-0" />
+                <a href="mailto:hello@be5eventery.com" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
                   hello@be5eventery.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-violet-400 mt-0.5 shrink-0" />
-                <span className="text-sm text-[#A89BC2]">Jaipur, Rajasthan, India</span>
+                <MapPin size={16} className="text-violet-600 mt-0.5 shrink-0" />
+                <span className="text-sm text-gray-600">Jaipur, Rajasthan, India</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[#A89BC2]">
+        <div className="pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-gray-500">
             © {new Date().getFullYear()} BE5 Events. All rights reserved.
           </p>
-          <p className="text-xs text-[#A89BC2]">
+          <p className="text-xs text-gray-500">
             Crafted with ❤️ in Jaipur
           </p>
         </div>

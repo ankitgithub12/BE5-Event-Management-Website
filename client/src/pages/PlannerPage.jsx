@@ -19,24 +19,24 @@ export default function PlannerPage() {
   return (
     <main className="pt-24 pb-20">
       {/* Header */}
-      <section className="py-16 px-4 md:px-8 hero-bg text-center relative overflow-hidden">
+      <section className="py-16 px-4 md:px-8 hero-bg text-center relative overflow-hidden w-full h-auto flex flex-col">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full opacity-10"
             style={{ background: 'radial-gradient(circle, #7C3AED, transparent 70%)' }} />
         </div>
-        <div className="relative z-10 max-w-2xl mx-auto">
+        <div className="relative z-10 max-w-2xl mx-auto w-full">
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D4AF37] mb-3">Plan Your Dream</p>
-          <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mb-5 leading-tight">
+          <h1 className="font-heading text-5xl md:text-6xl font-bold text-gray-900 mb-5 leading-tight">
             Custom <span className="text-gradient-gold italic">Event Planner</span>
           </h1>
-          <p className="text-[#A89BC2] text-lg leading-relaxed">
+          <p className="text-gray-600 text-lg leading-relaxed">
             Tell us about your event and get an instant cost estimate — no commitment needed.
           </p>
         </div>
       </section>
 
       {/* Step indicator */}
-      <div className="max-w-3xl mx-auto px-4 md:px-8 py-10">
+      <div className="max-w-3xl mx-auto px-4 md:px-8 py-10 w-full h-auto flex flex-col">
         <div className="flex items-center justify-center gap-0 mb-12">
           {STEPS.map(({ n, label }, i) => (
             <div key={n} className="flex items-center">
@@ -49,20 +49,20 @@ export default function PlannerPage() {
                     ? 'text-white scale-110'
                     : step > n
                     ? 'text-white'
-                    : 'text-[#A89BC2]'
+                    : 'text-gray-500'
                 }`}
                   style={{
                     background: step >= n
                       ? 'linear-gradient(135deg,#7C3AED,#9333EA)'
-                      : 'rgba(255,255,255,0.07)',
-                    border: step === n ? '2px solid rgba(212,175,55,0.5)' : 'none',
+                      : 'rgba(0,0,0,0.05)',
+                    border: step === n ? '2px solid rgba(212,175,55,0.5)' : '1px solid rgba(0,0,0,0.1)',
                   }}>
                   {n}
                 </div>
-                <span className={`text-xs font-medium hidden sm:block ${step === n ? 'text-white' : 'text-[#A89BC2]'}`}>{label}</span>
+                <span className={`text-xs font-medium hidden sm:block ${step === n ? 'text-gray-900' : 'text-gray-500'}`}>{label}</span>
               </button>
               {i < STEPS.length - 1 && (
-                <div className="w-16 sm:w-24 h-px mx-2" style={{ background: step > i + 1 ? 'linear-gradient(90deg,#7C3AED,#9333EA)' : 'rgba(255,255,255,0.1)' }} />
+                <div className="w-16 sm:w-24 h-px mx-2" style={{ background: step > i + 1 ? 'linear-gradient(90deg,#7C3AED,#9333EA)' : 'rgba(0,0,0,0.1)' }} />
               )}
             </div>
           ))}
@@ -84,7 +84,7 @@ export default function PlannerPage() {
 
         {/* Info note */}
         {step < 3 && (
-          <p className="text-center text-xs text-[#A89BC2] mt-6">
+          <p className="text-center text-xs text-gray-500 mt-6">
             * Estimates are approximate and subject to final quotation. Prices include 18% GST.
           </p>
         )}

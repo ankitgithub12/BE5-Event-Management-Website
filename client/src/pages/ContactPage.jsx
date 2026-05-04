@@ -32,46 +32,46 @@ export default function ContactPage() {
   return (
     <main className="pt-24">
       {/* Hero */}
-      <section className="py-20 px-4 md:px-8 hero-bg text-center relative overflow-hidden">
+      <section className="py-20 px-4 md:px-8 hero-bg text-center relative overflow-hidden w-full h-auto flex flex-col">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 right-1/3 w-[500px] h-[500px] rounded-full opacity-10"
             style={{ background: 'radial-gradient(circle, #7C3AED, transparent 70%)' }} />
         </div>
-        <div className="relative z-10 max-w-2xl mx-auto">
+        <div className="relative z-10 max-w-2xl mx-auto w-full">
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D4AF37] mb-3">Let's Talk</p>
-          <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mb-5 leading-tight">
+          <h1 className="font-heading text-5xl md:text-6xl font-bold text-gray-900 mb-5 leading-tight">
             Get In <span className="text-gradient-gold italic">Touch</span>
           </h1>
-          <p className="text-[#A89BC2] text-lg leading-relaxed">
+          <p className="text-gray-600 text-lg leading-relaxed">
             Ready to plan your perfect event? Drop us a message and we'll get back within 24 hours.
           </p>
         </div>
       </section>
 
       {/* Content */}
-      <section className="py-20 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-5 gap-12">
+      <section className="py-20 px-4 md:px-8 w-full h-auto flex flex-col">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-5 gap-12 w-full">
 
           {/* Left — Contact info */}
           <div className="lg:col-span-2 space-y-8">
             <div>
-              <h2 className="font-heading text-2xl font-bold text-white mb-2">Contact Information</h2>
-              <p className="text-[#A89BC2] text-sm">We're here to help you plan the event of your dreams.</p>
+              <h2 className="font-heading text-2xl font-bold text-gray-900 mb-2">Contact Information</h2>
+              <p className="text-gray-600 text-sm">We're here to help you plan the event of your dreams.</p>
             </div>
 
             <div className="space-y-5">
               {CONTACT_DETAILS.map(({ icon: Icon, label, value, href }) => (
                 <div key={label} className="flex items-start gap-4">
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-                    style={{ background: 'rgba(124,58,237,0.15)', border: '1px solid rgba(124,58,237,0.3)' }}>
-                    <Icon size={18} className="text-violet-400" />
+                    style={{ background: 'rgba(124,58,237,0.05)', border: '1px solid rgba(124,58,237,0.1)' }}>
+                    <Icon size={18} className="text-violet-600" />
                   </div>
                   <div>
-                    <p className="text-xs text-[#A89BC2] uppercase tracking-widest font-semibold mb-0.5">{label}</p>
+                    <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-0.5">{label}</p>
                     {href && href !== '#' ? (
-                      <a href={href} className="text-white text-sm hover:text-[#D4AF37] transition-colors font-medium">{value}</a>
+                      <a href={href} className="text-gray-900 text-sm hover:text-[#D4AF37] transition-colors font-medium">{value}</a>
                     ) : (
-                      <p className="text-white text-sm font-medium">{value}</p>
+                      <p className="text-gray-900 text-sm font-medium">{value}</p>
                     )}
                   </div>
                 </div>
@@ -80,11 +80,11 @@ export default function ContactPage() {
 
             {/* Map placeholder */}
             <div className="glass-card rounded-2xl overflow-hidden h-48 flex items-center justify-center"
-              style={{ border: '1px solid rgba(124,58,237,0.2)' }}>
+              style={{ border: '1px solid rgba(0,0,0,0.1)' }}>
               <div className="text-center">
-                <MapPin size={32} className="text-violet-400 mx-auto mb-2" />
-                <p className="text-white font-medium text-sm">Jaipur, Rajasthan</p>
-                <p className="text-[#A89BC2] text-xs mt-1">Pink City, India</p>
+                <MapPin size={32} className="text-violet-600 mx-auto mb-2" />
+                <p className="text-gray-900 font-medium text-sm">Jaipur, Rajasthan</p>
+                <p className="text-gray-500 text-xs mt-1">Pink City, India</p>
               </div>
             </div>
 
@@ -105,10 +105,10 @@ export default function ContactPage() {
           <div className="lg:col-span-3">
             {submitted ? (
               <div className="glass-card rounded-2xl p-12 text-center h-full flex flex-col items-center justify-center"
-                style={{ border: '1px solid rgba(212,175,55,0.3)' }}>
-                <CheckCircle size={64} className="text-emerald-400 mb-6" />
-                <h2 className="font-heading text-3xl font-bold text-white mb-3">Enquiry Received!</h2>
-                <p className="text-[#A89BC2] text-base leading-relaxed max-w-md">
+                style={{ border: '1px solid rgba(0,0,0,0.1)' }}>
+                <CheckCircle size={64} className="text-emerald-500 mb-6" />
+                <h2 className="font-heading text-3xl font-bold text-gray-900 mb-3">Enquiry Received!</h2>
+                <p className="text-gray-600 text-base leading-relaxed max-w-md">
                   Thank you for reaching out! Our team will contact you within 24 hours to discuss your event details.
                 </p>
                 <button
@@ -120,35 +120,35 @@ export default function ContactPage() {
                 </button>
               </div>
             ) : (
-              <div className="glass-card p-8 rounded-2xl" style={{ border: '1px solid rgba(124,58,237,0.2)' }}>
-                <h2 className="font-heading text-2xl font-bold text-white mb-6">Send Us a Message</h2>
+              <div className="glass-card p-8 rounded-2xl" style={{ border: '1px solid rgba(0,0,0,0.1)' }}>
+                <h2 className="font-heading text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs text-[#A89BC2] mb-2 uppercase tracking-widest font-semibold">Full Name *</label>
+                      <label className="block text-xs text-gray-600 mb-2 uppercase tracking-widest font-semibold">Full Name *</label>
                       <input required className="input-field" placeholder="Your name" value={form.name} onChange={(e) => update('name', e.target.value)} />
                     </div>
                     <div>
-                      <label className="block text-xs text-[#A89BC2] mb-2 uppercase tracking-widest font-semibold">Phone *</label>
+                      <label className="block text-xs text-gray-600 mb-2 uppercase tracking-widest font-semibold">Phone *</label>
                       <input required type="tel" className="input-field" placeholder="+91 XXXXX XXXXX" value={form.phone} onChange={(e) => update('phone', e.target.value)} />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs text-[#A89BC2] mb-2 uppercase tracking-widest font-semibold">Email Address *</label>
+                    <label className="block text-xs text-gray-600 mb-2 uppercase tracking-widest font-semibold">Email Address *</label>
                     <input required type="email" className="input-field" placeholder="your@email.com" value={form.email} onChange={(e) => update('email', e.target.value)} />
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs text-[#A89BC2] mb-2 uppercase tracking-widest font-semibold">Event Type</label>
+                      <label className="block text-xs text-gray-600 mb-2 uppercase tracking-widest font-semibold">Event Type</label>
                       <select className="input-field appearance-none" value={form.eventType} onChange={(e) => update('eventType', e.target.value)}>
                         <option value="">Select event</option>
                         {EVENT_TYPES.map((t) => <option key={t}>{t}</option>)}
                       </select>
                     </div>
                     <div>
-                      <label className="block text-xs text-[#A89BC2] mb-2 uppercase tracking-widest font-semibold">Budget Range</label>
+                      <label className="block text-xs text-gray-600 mb-2 uppercase tracking-widest font-semibold">Budget Range</label>
                       <select className="input-field appearance-none" value={form.budget} onChange={(e) => update('budget', e.target.value)}>
                         <option value="">Select budget</option>
                         {BUDGET_RANGES.map((b) => <option key={b}>{b}</option>)}
@@ -157,12 +157,12 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs text-[#A89BC2] mb-2 uppercase tracking-widest font-semibold">Event Date (Approx.)</label>
+                    <label className="block text-xs text-gray-600 mb-2 uppercase tracking-widest font-semibold">Event Date (Approx.)</label>
                     <input type="date" className="input-field" value={form.date} onChange={(e) => update('date', e.target.value)} />
                   </div>
 
                   <div>
-                    <label className="block text-xs text-[#A89BC2] mb-2 uppercase tracking-widest font-semibold">Message / Requirements</label>
+                    <label className="block text-xs text-gray-600 mb-2 uppercase tracking-widest font-semibold">Message / Requirements</label>
                     <textarea
                       rows={4}
                       className="input-field resize-none"
@@ -180,7 +180,7 @@ export default function ContactPage() {
                     <Send size={18} />
                     Send My Enquiry
                   </button>
-                  <p className="text-center text-xs text-[#A89BC2]">We'll respond within 24 hours. No spam, ever.</p>
+                  <p className="text-center text-xs text-gray-500">We'll respond within 24 hours. No spam, ever.</p>
                 </form>
               </div>
             )}

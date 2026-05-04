@@ -22,19 +22,19 @@ export default function PackagesPage() {
         </div>
         <div className="relative z-10 max-w-3xl mx-auto">
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D4AF37] mb-3">Transparent Pricing</p>
-          <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mb-5 leading-tight">
+          <h1 className="font-heading text-5xl md:text-6xl font-bold text-gray-900 mb-5 leading-tight">
             Our <span className="text-gradient-gold italic">Packages</span>
           </h1>
-          <p className="text-[#A89BC2] text-lg leading-relaxed">
+          <p className="text-gray-600 text-lg leading-relaxed">
             Clear, honest pricing with no hidden costs. Choose the package that fits your dream and budget.
           </p>
         </div>
       </section>
 
       {/* Package Cards */}
-      <section className="py-20 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 items-start">
+      <section className="py-20 px-4 md:px-8 w-full h-auto flex flex-col">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-start">
             {PACKAGES.map((pkg) => (
               <PackageCard key={pkg.id} pkg={pkg} />
             ))}
@@ -44,7 +44,7 @@ export default function PackagesPage() {
           <div className="text-center mt-12">
             <button
               onClick={() => setShowComparison(!showComparison)}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold glass-card border border-white/10 hover:border-violet-500/40 text-[#A89BC2] hover:text-white transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold glass-card border border-gray-200 hover:border-violet-500/40 text-gray-600 hover:text-gray-900 transition-all duration-300"
             >
               {showComparison ? 'Hide Comparison' : 'Compare All Packages'}
               <ArrowRight size={14} className={showComparison ? 'rotate-90' : ''} />
@@ -56,8 +56,8 @@ export default function PackagesPage() {
             <div className="mt-10 overflow-x-auto rounded-2xl glass-card">
               <table className="w-full text-sm">
                 <thead>
-                  <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-                    <th className="py-4 px-6 text-left text-[#A89BC2] font-medium">Feature</th>
+                  <tr style={{ borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
+                    <th className="py-4 px-6 text-left text-gray-600 font-medium">Feature</th>
                     {PACKAGES.map((p) => (
                       <th key={p.id} className="py-4 px-4 text-center font-semibold" style={{ color: p.color }}>
                         {p.icon} {p.name}
@@ -67,17 +67,17 @@ export default function PackagesPage() {
                 </thead>
                 <tbody>
                   {PACKAGE_COMPARISON_FEATURES.map((feat, i) => (
-                    <tr key={feat} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)', background: i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent' }}>
-                      <td className="py-3 px-6 text-[#A89BC2]">{feat}</td>
+                    <tr key={feat} style={{ borderBottom: '1px solid rgba(0,0,0,0.04)', background: i % 2 === 0 ? 'rgba(0,0,0,0.02)' : 'transparent' }}>
+                      <td className="py-3 px-6 text-gray-600">{feat}</td>
                       {PACKAGES.map((p) => (
-                        <td key={p.id} className="py-3 px-4 text-center text-white text-xs">
+                        <td key={p.id} className="py-3 px-4 text-center text-gray-900 font-medium text-xs">
                           {PACKAGE_FEATURE_MATRIX[p.id][i]}
                         </td>
                       ))}
                     </tr>
                   ))}
-                  <tr style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-                    <td className="py-4 px-6 font-semibold text-white">Starting Price</td>
+                  <tr style={{ borderTop: '1px solid rgba(0,0,0,0.07)' }}>
+                    <td className="py-4 px-6 font-semibold text-gray-900">Starting Price</td>
                     {PACKAGES.map((p) => (
                       <td key={p.id} className="py-4 px-4 text-center font-bold text-sm" style={{ color: p.color }}>
                         {p.displayPrice}
@@ -92,13 +92,13 @@ export default function PackagesPage() {
       </section>
 
       {/* Custom CTA */}
-      <section className="py-16 px-4 md:px-8 text-center"
-        style={{ background: 'linear-gradient(135deg,#12082A,#0A0A18)' }}>
-        <div className="max-w-2xl mx-auto">
-          <h2 className="font-heading text-3xl font-bold text-white mb-4">
+      <section className="py-16 px-4 md:px-8 text-center w-full h-auto flex flex-col"
+        style={{ background: 'linear-gradient(135deg,#FDFBF7,#F3E8FF)' }}>
+        <div className="max-w-2xl mx-auto w-full">
+          <h2 className="font-heading text-3xl font-bold text-gray-900 mb-4">
             Need a Custom Package?
           </h2>
-          <p className="text-[#A89BC2] mb-8">
+          <p className="text-gray-600 mb-8">
             Use our intelligent planner to mix and match services and get a personalised quote instantly.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -111,7 +111,7 @@ export default function PackagesPage() {
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold glass-card border border-white/10 text-white hover:border-violet-500/40 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold glass-card border border-gray-300 text-gray-800 hover:border-violet-500/40 transition-all duration-300"
             >
               Talk to an Expert
             </Link>

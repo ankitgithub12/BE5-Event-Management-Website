@@ -66,7 +66,7 @@ export default function PlannerForm({ form, updateField, toggleAddon, onNext }) 
     <div className="space-y-10">
       {/* Event Type */}
       <div>
-        <p className="text-sm font-semibold text-white mb-4">Select Event Type</p>
+        <p className="text-sm font-semibold text-gray-900 mb-4">Select Event Type</p>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
           {EVENT_TYPES.map(({ value, label, icon }) => (
             <button
@@ -74,8 +74,8 @@ export default function PlannerForm({ form, updateField, toggleAddon, onNext }) 
               onClick={() => updateField('eventType', value)}
               className={`flex flex-col items-center gap-2 p-4 rounded-xl border transition-all duration-200 ${
                 form.eventType === value
-                  ? 'border-violet-500 bg-violet-600/20 text-white'
-                  : 'glass-card border-white/10 text-[#A89BC2] hover:border-violet-500/40 hover:text-white'
+                  ? 'border-violet-500 bg-violet-100 text-violet-900'
+                  : 'glass-card border-gray-200 text-gray-600 hover:border-violet-500/40 hover:text-gray-900'
               }`}
             >
               <span className="text-2xl">{icon}</span>
@@ -87,16 +87,16 @@ export default function PlannerForm({ form, updateField, toggleAddon, onNext }) 
 
       {/* Guest Count */}
       <div>
-        <p className="text-sm font-semibold text-white mb-2">
-          Number of Guests: <span className="text-violet-400">{form.guestCount}</span>
+        <p className="text-sm font-semibold text-gray-900 mb-2">
+          Number of Guests: <span className="text-violet-600">{form.guestCount}</span>
         </p>
         <input
           type="range" min={10} max={1000} step={10}
           value={form.guestCount}
           onChange={(e) => updateField('guestCount', Number(e.target.value))}
-          className="w-full"
+          className="w-full accent-violet-600"
         />
-        <div className="flex justify-between text-xs text-[#A89BC2] mt-1">
+        <div className="flex justify-between text-xs text-gray-500 mt-1">
           <span>10 guests</span>
           <span>1000 guests</span>
         </div>
@@ -104,7 +104,7 @@ export default function PlannerForm({ form, updateField, toggleAddon, onNext }) 
 
       {/* Location */}
       <div>
-        <p className="text-sm font-semibold text-white mb-4">Location Type</p>
+        <p className="text-sm font-semibold text-gray-900 mb-4">Location Type</p>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           {LOCATION_TIERS.map(({ value, label, desc }) => (
             <button
@@ -112,12 +112,12 @@ export default function PlannerForm({ form, updateField, toggleAddon, onNext }) 
               onClick={() => updateField('locationTier', value)}
               className={`p-4 rounded-xl border text-left transition-all duration-200 ${
                 form.locationTier === value
-                  ? 'border-violet-500 bg-violet-600/20'
-                  : 'glass-card border-white/10 hover:border-violet-500/40'
+                  ? 'border-violet-500 bg-violet-100'
+                  : 'glass-card border-gray-200 hover:border-violet-500/40'
               }`}
             >
-              <p className={`text-sm font-medium ${form.locationTier === value ? 'text-violet-300' : 'text-white'}`}>{label}</p>
-              <p className="text-xs text-[#A89BC2] mt-1">{desc}</p>
+              <p className={`text-sm font-medium ${form.locationTier === value ? 'text-violet-900' : 'text-gray-700'}`}>{label}</p>
+              <p className="text-xs text-gray-500 mt-1">{desc}</p>
             </button>
           ))}
         </div>
@@ -125,7 +125,7 @@ export default function PlannerForm({ form, updateField, toggleAddon, onNext }) 
 
       {/* Add-ons */}
       <div>
-        <p className="text-sm font-semibold text-white mb-4">Select Required Services</p>
+        <p className="text-sm font-semibold text-gray-900 mb-4">Select Required Services</p>
         <div className="space-y-5">
           {ADDON_GROUPS.map(({ label, addons }) => (
             <div key={label}>
@@ -137,11 +137,11 @@ export default function PlannerForm({ form, updateField, toggleAddon, onNext }) 
                     onClick={() => toggleAddon(key)}
                     className={`px-3 py-3 rounded-xl border text-left transition-all duration-200 ${
                       form.addons.includes(key)
-                        ? 'border-violet-500 bg-violet-600/20'
-                        : 'glass-card border-white/10 hover:border-violet-500/40'
+                        ? 'border-violet-500 bg-violet-100'
+                        : 'glass-card border-gray-200 hover:border-violet-500/40'
                     }`}
                   >
-                    <p className={`text-xs font-medium ${form.addons.includes(key) ? 'text-violet-300' : 'text-[#A89BC2]'}`}>{aLabel}</p>
+                    <p className={`text-xs font-medium ${form.addons.includes(key) ? 'text-violet-900' : 'text-gray-600'}`}>{aLabel}</p>
                     <p className="text-xs text-[#D4AF37] mt-1">{formatINR(price)}</p>
                   </button>
                 ))}

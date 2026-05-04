@@ -18,19 +18,19 @@ export default function ServicesPage() {
         </div>
         <div className="relative z-10 max-w-3xl mx-auto">
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D4AF37] mb-3">What We Offer</p>
-          <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mb-5 leading-tight">
+          <h1 className="font-heading text-5xl md:text-6xl font-bold text-gray-900 mb-5 leading-tight">
             Our <span className="text-gradient-gold italic">Services</span>
           </h1>
-          <p className="text-[#A89BC2] text-lg leading-relaxed">
+          <p className="text-gray-600 text-lg leading-relaxed">
             From intimate gatherings to grand celebrations — we craft every moment with passion and precision.
           </p>
         </div>
       </section>
 
       {/* Service Cards */}
-      <section className="py-20 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-20 px-4 md:px-8 w-full h-auto flex flex-col">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {SERVICES.map(({ id, title, description, icon, color, features, startingFrom }) => (
               <div
                 key={id}
@@ -46,13 +46,13 @@ export default function ServicesPage() {
                       From {startingFrom}
                     </span>
                   </div>
-                  <h2 className="font-heading text-xl font-bold text-white mb-3">{title}</h2>
-                  <p className="text-[#A89BC2] text-sm leading-relaxed mb-5">{description}</p>
+                  <h2 className="font-heading text-xl font-bold text-gray-900 mb-3">{title}</h2>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-5">{description}</p>
 
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2 mb-6 flex-1">
                     {features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-sm text-[#A89BC2]">
-                        <Check size={14} style={{ color }} />
+                      <li key={f} className="flex items-center gap-2 text-sm text-gray-600">
+                        <Check size={14} style={{ color }} className="shrink-0" />
                         {f}
                       </li>
                     ))}
@@ -73,28 +73,29 @@ export default function ServicesPage() {
       </section>
 
       {/* Pre-Wedding Shoot Spotlight */}
-      <section className="py-20 px-4 md:px-8"
-        style={{ background: 'linear-gradient(180deg, #0A0A18 0%, #12082A 50%, #0A0A18 100%)' }}>
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 px-4 md:px-8 w-full h-auto flex flex-col"
+        style={{ background: 'linear-gradient(180deg, #FDFBF7 0%, #F5F3FF 50%, #FDFBF7 100%)' }}>
+        <div className="max-w-7xl mx-auto w-full">
           <SectionHeader
             tag="Spotlight"
             title={<>Pre-Wedding <span className="text-gradient-gold italic">Shoot Levels</span></>}
             subtitle="Choose the shoot experience that matches your story."
+            light={false}
           />
-          <div className="grid md:grid-cols-3 gap-6 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
             {PRE_WEDDING_LEVELS.map(({ id, name, price, features: feats }) => (
               <div key={id} className="glass-card p-7 rounded-2xl hover:-translate-y-1 transition-all duration-300">
                 <p className="text-xs font-semibold uppercase tracking-widest text-[#D4AF37] mb-2">
                   {id === 'basic' ? 'Essential' : id === 'medium' ? 'Premium' : 'Destination'}
                 </p>
-                <h3 className="font-heading text-xl font-bold text-white mb-2">{name}</h3>
-                <p className="font-heading text-2xl text-violet-400 font-bold mb-5">
+                <h3 className="font-heading text-xl font-bold text-gray-900 mb-2">{name}</h3>
+                <p className="font-heading text-2xl text-violet-600 font-bold mb-5">
                   {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(price)}
                 </p>
-                <ul className="space-y-2.5">
+                <ul className="space-y-2.5 flex-1">
                   {feats.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-[#A89BC2]">
-                      <Check size={14} className="text-emerald-400" />
+                    <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
+                      <Check size={14} className="text-emerald-500 mt-0.5 shrink-0" />
                       {f}
                     </li>
                   ))}
@@ -113,12 +114,12 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 md:px-8 text-center">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="font-heading text-3xl font-bold text-white mb-4">
+      <section className="py-16 px-4 md:px-8 text-center w-full h-auto flex flex-col">
+        <div className="max-w-2xl mx-auto w-full">
+          <h2 className="font-heading text-3xl font-bold text-gray-900 mb-4">
             Don't See What You Need?
           </h2>
-          <p className="text-[#A89BC2] mb-8">Use our Custom Planner to build your own package from scratch.</p>
+          <p className="text-gray-600 mb-8">Use our Custom Planner to build your own package from scratch.</p>
           <Link
             to="/planner"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105"

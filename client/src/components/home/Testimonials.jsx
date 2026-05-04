@@ -44,12 +44,12 @@ export default function Testimonials() {
   const next = () => setActive((a) => (a + 1) % TESTIMONIALS.length)
 
   return (
-    <section className="py-24 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-4 md:px-8 w-full h-auto">
+      <div className="max-w-7xl mx-auto flex flex-col w-full h-auto">
         <SectionHeader tag="Clients Love" title={<>What Our Clients <span className="text-gradient-gold">Say</span></>} />
 
         {/* Desktop grid */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 w-full">
           {TESTIMONIALS.map(({ name, role, content, rating, avatar }, i) => (
             <div key={name} className="glass-card p-6 rounded-2xl flex flex-col gap-4 hover:-translate-y-1 transition-all duration-300">
               <div className="text-4xl">{avatar}</div>

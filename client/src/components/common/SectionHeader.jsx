@@ -5,7 +5,7 @@
 
 export default function SectionHeader({ tag, title, subtitle, light = false, center = true }) {
   return (
-    <div className={`mb-12 ${center ? 'text-center' : ''}`}>
+    <div className={`mb-12 flex flex-col ${center ? 'items-center text-center' : 'items-start text-left'}`}>
       {tag && (
         <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D4AF37] mb-3">
           {tag}
@@ -16,10 +16,9 @@ export default function SectionHeader({ tag, title, subtitle, light = false, cen
       }`}>
         {title}
       </h2>
-      {center && <div className="section-divider mx-auto mb-4" />}
-      {!center && <div className="section-divider mb-4" style={{ margin: '0 0 1rem 0' }} />}
+      <div className={`section-divider mb-4 ${center ? 'mx-auto' : ''}`} />
       {subtitle && (
-        <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-gray-600 text-base md:text-lg max-w-2xl leading-relaxed">
           {subtitle}
         </p>
       )}

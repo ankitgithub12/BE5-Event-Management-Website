@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? 'py-2 backdrop-blur-xl bg-[#0A0A18]/90 shadow-lg shadow-violet-950/30' : 'py-4 bg-transparent'
+        scrolled ? 'py-2 backdrop-blur-xl bg-white/90 shadow-md shadow-gray-200/50' : 'py-4 bg-transparent'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
@@ -46,15 +46,15 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map(({ label, to }) => (
             <li key={to}>
               <Link
                 to={to}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   location.pathname === to
-                    ? 'bg-violet-600/20 text-violet-300'
-                    : 'text-[#A89BC2] hover:text-white hover:bg-white/5'
+                    ? 'bg-violet-100 text-violet-700'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                 }`}
               >
                 {label}
@@ -67,7 +67,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="tel:+919876543210"
-            className="hidden md:flex items-center gap-1.5 text-sm text-[#A89BC2] hover:text-white transition-colors"
+            className="hidden md:flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900 transition-colors"
           >
             <Phone size={14} />
             <span>+91 98765 43210</span>
@@ -83,7 +83,7 @@ export default function Navbar() {
           {/* Hamburger */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden p-2 rounded-lg text-[#A89BC2] hover:text-white hover:bg-white/10 transition-colors"
+            className="md:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
             aria-label="Toggle menu"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
@@ -101,8 +101,8 @@ export default function Navbar() {
                   to={to}
                   className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                     location.pathname === to
-                      ? 'bg-violet-600/20 text-violet-300'
-                      : 'text-[#A89BC2] hover:text-white hover:bg-white/5'
+                      ? 'bg-violet-100 text-violet-700'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                   }`}
                 >
                   {label}

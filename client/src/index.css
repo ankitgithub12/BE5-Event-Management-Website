@@ -1,140 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
-/* ── Custom Design Tokens ─────────────────────────────────── */
-:root {
-  --color-primary:        #8B5CF6;
-  --color-primary-light:  #A855F7;
-  --color-primary-dark:   #7E22CE;
-  --color-accent:         #D4AF37;
-  --color-accent-light:   #F0D060;
-  --color-bg:             #FDFBF7;
-  --color-bg-card:        rgba(255, 255, 255, 0.9);
-  --color-text:           #1F2937;
-  --color-text-muted:     #4B5563;
-  --gradient-hero:        linear-gradient(135deg, #FDFBF7 0%, #F3E8FF 100%);
-  --gradient-primary:     linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
-  --gradient-gold:        linear-gradient(135deg, #D4AF37 0%, #F0D060 100%);
-  --font-heading:         'Playfair Display', Georgia, serif;
-  --font-body:            'Inter', system-ui, sans-serif;
-  --shadow-glow:          0 0 40px rgba(139, 92, 246, 0.15);
-  --shadow-gold-glow:     0 0 30px rgba(212, 175, 55, 0.15);
-  --radius-card:          1rem;
-  --transition-smooth:    all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+@theme {
+  --color-primary: #291A39;
+  --color-primary-light: #442a5d;
+  --color-primary-dark: #190f23;
+  --color-accent: #C89E62;
+  --color-accent-hover: #b48b51;
+  --color-accent-light: rgba(200, 158, 98, 0.15);
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Outfit', sans-serif;
+  --shadow-gold: 0 10px 25px -5px rgba(200, 158, 98, 0.3);
 }
 
-/* ── Base Reset ───────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
 
-html { scroll-behavior: smooth; }
+  body {
+    @apply font-body bg-white text-gray-800 antialiased overflow-x-hidden;
+  }
 
-body {
-  font-family: var(--font-body);
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold leading-tight;
+  }
 }
 
-/* ── Scrollbar ────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 9999px; }
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-7 py-3 rounded-full font-medium text-base gap-2 transition-all duration-300 cursor-pointer;
+  }
+  
+  .btn-primary {
+    @apply bg-accent text-white shadow-[var(--shadow-gold)] hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-[0_15px_30px_-5px_rgba(200,158,98,0.4)];
+  }
 
-/* ── Typography Helpers ───────────────────────────────────── */
-.font-heading { font-family: var(--font-heading); }
-.text-gradient-primary {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.text-gradient-gold {
-  background: var(--gradient-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+  .btn-outline {
+    @apply bg-transparent border border-primary text-primary hover:bg-primary hover:text-white;
+  }
 
-/* ── Glass Card ───────────────────────────────────────────── */
-.glass-card {
-  background: var(--color-bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: var(--radius-card);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  .btn-outline-light {
+    @apply bg-transparent border border-white text-white hover:bg-white hover:text-primary;
+  }
 }
-
-/* ── Glow Effects ─────────────────────────────────────────── */
-.glow-primary { box-shadow: var(--shadow-glow); }
-.glow-gold    { box-shadow: var(--shadow-gold-glow); }
-
-/* ── Section Divider ─────────────────────────────────────── */
-.section-divider {
-  width: 60px; height: 3px;
-  background: var(--gradient-gold);
-  border-radius: 9999px;
-  margin: 0 auto;
-}
-
-/* ── Sparkle Particle ────────────────────────────────────── */
-@keyframes float-sparkle {
-  0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
-  50%      { transform: translateY(-18px) rotate(180deg); opacity: 1; }
-}
-.sparkle {
-  position: absolute;
-  width: 6px; height: 6px;
-  background: var(--color-accent);
-  border-radius: 50%;
-  animation: float-sparkle 3s ease-in-out infinite;
-  pointer-events: none;
-}
-
-/* ── Hero gradient overlay ───────────────────────────────── */
-.hero-bg {
-  background: var(--gradient-hero);
-}
-
-/* ── Fade-in animation ───────────────────────────────────── */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-up { animation: fadeInUp 0.7s ease forwards; }
-
-/* ── Input styling ───────────────────────────────────────── */
-.input-field {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  transition: var(--transition-smooth);
-  outline: none;
-}
-.input-field::placeholder { color: var(--color-text-muted); }
-.input-field:focus {
-  border-color: var(--color-primary-light);
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
-}
-
-/* ── Range slider ────────────────────────────────────────── */
-input[type=range] { accent-color: var(--color-primary); }
-
-/* ── Scrollable horizontal gallery ──────────────────────── */
-.gallery-track {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 0.5rem;
-  -webkit-overflow-scrolling: touch;
-}
-.gallery-track::-webkit-scrollbar { height: 4px; }
-.gallery-track > * { scroll-snap-align: start; flex-shrink: 0; }

@@ -1,0 +1,101 @@
+import { Link } from 'react-router-dom';
+import { MessageCircle, Phone, Mail, MapPin } from 'lucide-react';
+import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
+
+const Footer = () => {
+  return (
+    <footer className="bg-primary-dark text-gray-200 pt-20">
+      <div className="container mx-auto px-4 md:px-8 max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-12">
+        
+        {/* Brand & Socials */}
+        <div className="lg:col-span-5">
+          <Link to="/" className="flex items-center gap-2 mb-6">
+            <span className="font-heading text-5xl font-bold text-white leading-none">B5</span>
+            <div>
+              <h2 className="font-heading text-3xl text-white m-0 leading-none">Eventory</h2>
+              <p className="text-[0.6rem] tracking-[1px] text-accent uppercase m-0 mt-1">WHERE EVERY EVENT BECOMES A STORY</p>
+            </div>
+          </Link>
+          <div className="flex gap-4">
+            <a href="#" className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 text-white hover:bg-accent hover:border-accent hover:-translate-y-1 transition-all duration-300">
+              <FaFacebook size={20} />
+            </a>
+            <a href="#" className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 text-white hover:bg-accent hover:border-accent hover:-translate-y-1 transition-all duration-300">
+              <FaInstagram size={20} />
+            </a>
+            <a href="#" className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 text-white hover:bg-accent hover:border-accent hover:-translate-y-1 transition-all duration-300">
+              <MessageCircle size={20} />
+            </a>
+            <a href="#" className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 text-white hover:bg-accent hover:border-accent hover:-translate-y-1 transition-all duration-300">
+              <FaYoutube size={20} />
+            </a>
+          </div>
+        </div>
+
+        {/* Quick Links */}
+        <div className="lg:col-span-2">
+          <h3 className="font-body text-sm font-semibold tracking-[1px] text-white mb-6 uppercase">QUICK LINKS</h3>
+          <ul className="flex flex-col gap-3">
+            {[
+              { name: 'Home', path: '/' },
+              { name: 'About Us', path: '/#about' },
+              { name: 'Services', path: '/#services' },
+              { name: 'Portfolio', path: '/#portfolio' },
+              { name: 'Testimonials', path: '/#testimonials' },
+              { name: 'Contact', path: '/#contact' }
+            ].map((link, i) => (
+              <li key={i}>
+                <a href={link.path} className="text-sm text-white/70 hover:text-accent relative group inline-block">
+                  {link.name}
+                  <span className="absolute bottom-0 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Our Services */}
+        <div className="lg:col-span-2">
+          <h3 className="font-body text-sm font-semibold tracking-[1px] text-white mb-6 uppercase">OUR SERVICES</h3>
+          <ul className="flex flex-col gap-3">
+            {['College Events', 'Corporate Events', 'Private Parties', 'Weddings', 'Product Launches', 'Exhibitions'].map((service, i) => (
+              <li key={i}>
+                <a href="/#services" className="text-sm text-white/70 hover:text-accent relative group inline-block">
+                  {service}
+                  <span className="absolute bottom-0 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Contact Us */}
+        <div className="lg:col-span-3">
+          <h3 className="font-body text-sm font-semibold tracking-[1px] text-white mb-6 uppercase">CONTACT US</h3>
+          <ul className="flex flex-col gap-4">
+            <li className="flex items-start gap-3 text-sm text-white/70">
+              <Phone size={18} className="text-accent shrink-0 mt-0.5" />
+              <span>+91 98765 43210</span>
+            </li>
+            <li className="flex items-start gap-3 text-sm text-white/70">
+              <Mail size={18} className="text-accent shrink-0 mt-0.5" />
+              <span>hello@b5eventory.com</span>
+            </li>
+            <li className="flex items-start gap-3 text-sm text-white/70">
+              <MapPin size={18} className="text-accent shrink-0 mt-0.5" />
+              <span>Jaipur, Rajasthan</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      
+      {/* Bottom Footer */}
+      <div className="border-t border-white/10 py-6 text-center text-sm text-white/50">
+        <p>&copy; {new Date().getFullYear()} B5 Eventory. All Rights Reserved.</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

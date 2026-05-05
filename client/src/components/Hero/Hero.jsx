@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative pt-36 pb-20 min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white to-purple-50">
+    <section className="relative pt-36 pb-20 min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white to-primary/[0.03]">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         
         {/* Left Content */}

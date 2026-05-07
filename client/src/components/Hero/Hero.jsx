@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="absolute inset-0 flex flex-col lg:flex-row">
         <div className="flex-1 relative group overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1500&q=80" 
+            src="https://images.unsplash.com/photo-1530023367847-a683933f4172" 
             alt="Wedding Celebration" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110"
           />
@@ -16,7 +16,7 @@ const Hero = () => {
         </div>
         <div className="flex-1 relative group overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=1500&q=80" 
+            src="https://www.bfivewarriors.com/assets/images/gallery/image16.png" 
             alt="Birthday Party" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110"
           />

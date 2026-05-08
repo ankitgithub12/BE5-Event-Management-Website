@@ -46,7 +46,7 @@ const Testimonials = () => {
       name: "Priya Das",
       role: "Marketing Head",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1531123897727-8f129e16fd3c?auto=format&fit=crop&w=150&q=80"
+      image: "https://images.unsplash.com/photo-1600357524338-0aa536556606?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Z2lybCUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D"
     }
   ];
 

@@ -1,57 +1,73 @@
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
-import { Camera, Video, Music, Tent, Users, GraduationCap, Briefcase, PartyPopper, CheckCircle } from 'lucide-react';
+import { Camera, Video, Music, Tent, Users, Briefcase, PartyPopper, CheckCircle, ArrowRight, Heart, Star, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ServicesPage = () => {
   const mainServices = [
     {
-      icon: <Users size={40} className="text-primary" />,
+      icon: <Heart size={40} className="text-primary" />,
       title: 'Wedding Planning',
-      description: 'End-to-end luxury wedding planning. We manage everything from venue selection to guest hospitality, ensuring your big day is flawless.',
+      priceRange: '₹6L – ₹50L+',
+      description: 'End-to-end wedding management – venue, decor, catering, guest coordination, and more.',
+      includes: ['Venue booking', 'Catering', 'Decor', 'Makeup', 'Entertainment', 'Transport'],
+      popularAddOn: 'Drone cinematography',
+      ctaText: 'Explore Wedding',
+      link: '/packages',
+      pastEvent: 'Anjali & Rohit – Udaipur Wedding (Premium Package)',
       image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80'
     },
     {
       icon: <Camera size={40} className="text-primary" />,
       title: 'Pre-Wedding Shoot',
-      description: 'Capture your love story in stunning locations. We offer concept styling, premium locations, and cinematic drone shoots.',
+      priceRange: '₹25k – ₹3L',
+      description: 'Capture your love story before the big day. Local, destination, or cinematic.',
+      includes: ['Photographer', 'HD photos', 'Drone (optional)', 'Album design'],
+      popularAddOn: 'Behind-the-scenes reel',
+      ctaText: 'Explore Pre-Wedding',
+      link: '/packages',
+      pastEvent: 'Neha & Vikram – Jaipur Pre-Wedding (Drone included)',
       image: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80'
     },
     {
-      icon: <Tent size={40} className="text-primary" />,
+      icon: <Sparkles size={40} className="text-primary" />,
       title: 'Engagement Ceremony',
-      description: 'Intimate to grand engagement parties featuring beautiful floral decor, lighting, and perfect entertainment.',
+      priceRange: '₹3L – ₹12L',
+      description: 'Ring ceremonies, surprise proposals, and roka celebrations.',
+      includes: ['Venue', 'Photography', 'Catering', 'Decor', 'Return gifts'],
+      popularAddOn: 'Surprise proposal coordination',
+      ctaText: 'Explore Engagement',
+      link: '/packages',
+      pastEvent: 'Priya & Karan – Surprise Rooftop Proposal',
       image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80'
     },
     {
       icon: <Briefcase size={40} className="text-primary" />,
       title: 'Corporate Events',
-      description: 'Professional conferences, product launches, and corporate galas executed with precision and brand alignment.',
+      priceRange: '₹5L – ₹25L+',
+      description: 'Product launches, annual galas, conferences, and team offsites.',
+      includes: ['AV setup', 'Stage design', 'Catering', 'Guest management', 'Branding'],
+      popularAddOn: 'Celebrity speaker booking',
+      ctaText: 'Explore Corporate',
+      link: '/packages',
+      pastEvent: 'TechCorp Annual Gala – 800 guests',
       image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80'
     },
     {
       icon: <PartyPopper size={40} className="text-primary" />,
       title: 'Small Functions',
-      description: 'Birthdays, anniversaries, and baby showers. We bring the same level of detail to your personal milestones.',
+      priceRange: '₹1L – ₹8L',
+      description: 'Birthdays, anniversaries, baby showers, and retirement parties.',
+      includes: ['Theme decor', 'Cake', 'Photography', 'Return gifts', 'Entertainment'],
+      popularAddOn: 'Themed Photo Booth',
+      ctaText: 'Explore Small Functions',
+      link: '/packages',
+      pastEvents: [
+        "Rohan's 1st Birthday – Jungle Theme (45 guests, ₹3.2L)",
+        "Raj & Priya – 25th Ruby Anniversary (120 guests, ₹7.5L)",
+        "Surprise 40th Birthday (70 guests, ₹4.5L)"
+      ],
       image: 'https://images.unsplash.com/photo-1530103862676-de8892bf30b5?auto=format&fit=crop&w=800&q=80'
-    }
-  ];
-
-  const preWeddingFeatures = [
-    {
-      level: 'Basic',
-      features: ['Local City Locations', 'Standard Photography', 'Candid Shots', '1 Day Shoot', 'No Drone Coverage'],
-      color: 'bg-gray-100'
-    },
-    {
-      level: 'Medium',
-      features: ['Premium Outstation Locations', 'Photography & Videography', 'Concept Styling', '2 Day Shoot', 'Basic Drone Shots'],
-      color: 'bg-primary-light text-white',
-      featured: true
-    },
-    {
-      level: 'High',
-      features: ['International/Destination Shoot', 'Cinematic Production Team', 'Makeup Artist Included', '3-4 Day Shoot', 'Advanced FPV Drone'],
-      color: 'bg-gray-100'
     }
   ];
 
@@ -65,76 +81,112 @@ const ServicesPage = () => {
         <div className="container mx-auto px-4 max-w-7xl mb-20 text-center">
           <div className="flex items-center justify-center gap-2 text-accent font-semibold text-sm tracking-[2px] uppercase mb-4">
             <span className="w-8 h-px bg-accent"></span>
-            COMPREHENSIVE SOLUTIONS
+            OUR SERVICES
             <span className="w-8 h-px bg-accent"></span>
           </div>
           <h1 className="text-5xl md:text-6xl font-heading text-primary mb-6">Our Services</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
             From intimate gatherings to massive corporate galas, we provide complete event planning solutions tailored to your unique vision and budget.
           </p>
         </div>
 
         {/* Main Services Grid */}
-        <div className="container mx-auto px-4 max-w-7xl mb-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {mainServices.map((service, index) => (
-              <div key={index} className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group">
-                <div className="h-48 overflow-hidden relative">
+              <div key={index} className="bg-white rounded-[2rem] overflow-hidden shadow-xl border border-gray-100 flex flex-col h-full group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                {/* Image Section */}
+                <div className="h-64 overflow-hidden relative">
                   <img 
                     src={service.image} 
                     alt={service.title} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <span className="text-white font-medium text-lg flex items-center gap-2">
+                      Starting from <span className="text-accent font-bold">{service.priceRange.split(' – ')[0]}</span>
+                    </span>
+                  </div>
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-primary font-bold shadow-md">
+                    {service.priceRange}
+                  </div>
                 </div>
-                <div className="p-8 relative">
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg absolute -top-8 right-8 text-primary group-hover:text-accent transition-colors duration-300">
+
+                {/* Content Section */}
+                <div className="p-8 flex flex-col flex-grow relative">
+                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg absolute -top-8 left-8 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
                     {service.icon}
                   </div>
-                  <h3 className="text-2xl font-heading text-primary mb-3 mt-4">{service.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">
+                  
+                  <h3 className="text-2xl font-heading text-primary mb-3 mt-6">{service.title}</h3>
+                  <p className="text-gray-600 leading-relaxed mb-6 text-sm">
                     {service.description}
                   </p>
+
+                  <div className="space-y-4 mb-8 flex-grow">
+                    <div>
+                      <h4 className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-3 flex items-center gap-2">
+                        <CheckCircle size={14} className="text-accent" />
+                        What's Included
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {service.includes.map((item, i) => (
+                          <span key={i} className="text-[10px] md:text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full font-medium">
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="bg-accent/5 p-4 rounded-xl border border-accent/10">
+                      <h4 className="text-xs uppercase tracking-wider text-accent font-bold mb-1">Popular Add-on</h4>
+                      <p className="text-primary font-medium text-sm">{service.popularAddOn}</p>
+                    </div>
+
+                    <div className="border-t border-gray-100 pt-4">
+                      <h4 className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-2 flex items-center gap-2">
+                        <Star size={14} className="text-yellow-500 fill-yellow-500" />
+                        Past Event Example
+                      </h4>
+                      {service.pastEvents ? (
+                        <ul className="space-y-1">
+                          {service.pastEvents.map((event, i) => (
+                            <li key={i} className="text-xs text-gray-600 italic font-medium border-l-2 border-accent pl-2 py-1">
+                              "{event}"
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-xs text-gray-600 italic font-medium border-l-2 border-accent pl-2 py-1">
+                          "{service.pastEvent}"
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <Link to={service.link} className="w-full bg-primary text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 group-hover:bg-accent transition-colors duration-300 cursor-pointer">
+                    {service.ctaText}
+                    <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Pre-Wedding Focus Section */}
-        <div className="bg-white py-24">
-          <div className="container mx-auto px-4 max-w-7xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-heading text-primary mb-4">Pre-Wedding Shoots</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Turn your love story into a cinematic masterpiece. Choose a tier that fits your dream aesthetic.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-              {preWeddingFeatures.map((tier, index) => (
-                <div 
-                  key={index} 
-                  className={`rounded-3xl p-8 transition-transform duration-300 hover:-translate-y-2 ${tier.color} ${tier.featured ? 'shadow-2xl scale-105 py-12' : 'shadow-lg border border-gray-200'}`}
-                >
-                  <h3 className={`text-3xl font-heading text-center mb-8 ${tier.featured ? 'text-accent' : 'text-primary'}`}>
-                    {tier.level}
-                  </h3>
-                  <ul className="space-y-4">
-                    {tier.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-3">
-                        <CheckCircle size={20} className={tier.featured ? 'text-accent' : 'text-primary/50'} />
-                        <span className={tier.featured ? 'text-white/90' : 'text-gray-700'}>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-10 text-center">
-                    <a href="/packages" className={`btn w-full ${tier.featured ? 'btn-primary' : 'btn-outline'}`}>
-                      View Pricing
-                    </a>
-                  </div>
-                </div>
-              ))}
+        {/* CTA Section */}
+        <div className="container mx-auto px-4 max-w-7xl mt-24">
+          <div className="bg-primary rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"></div>
+            
+            <h2 className="text-3xl md:text-5xl font-heading text-white mb-6 relative z-10">Need a Custom Solution?</h2>
+            <p className="text-white/70 max-w-2xl mx-auto mb-10 text-lg relative z-10">
+              Every event is unique. If you don't see what you're looking for, our expert planners will design a bespoke package just for you.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+              <Link to="/contact" className="bg-accent text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-white transition-colors cursor-pointer">Book Free Consultation</Link>
+              <button className="border-2 border-white/30 text-white hover:bg-white/10 px-10 py-4 rounded-full font-bold text-lg transition-colors cursor-pointer">Download Brochure</button>
             </div>
           </div>
         </div>
@@ -147,3 +199,5 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
+
+

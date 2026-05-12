@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Top Gradient for navbar visibility */}
+      <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-black/50 to-transparent z-20 pointer-events-none"></div>
+
       {/* Split Background */}
       <div className="absolute inset-0 flex flex-col lg:flex-row">
         <div className="flex-1 relative group overflow-hidden">

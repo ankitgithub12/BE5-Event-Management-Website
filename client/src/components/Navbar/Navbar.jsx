@@ -26,11 +26,14 @@ const Navbar = () => {
 
   const isActive = (path) => location.pathname === path;
 
+  const isHomePage = location.pathname === '/';
+  const isSolid = isScrolled || !isHomePage;
+
   return (
     <>
       {/* Top Header - Desktop and Mobile (Logo only) */}
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md py-3 shadow-sm' : 'bg-transparent py-5'
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isSolid ? 'bg-white/90 backdrop-blur-md py-3 shadow-sm' : 'bg-transparent py-5'
           }`}
       >
         <div className="container mx-auto px-4 md:px-8 max-w-7xl flex justify-between items-center">
@@ -46,7 +49,7 @@ const Navbar = () => {
               <div className="absolute inset-0 rounded-xl shadow-[0_0_15px_rgba(255,255,255,0.3)] group-hover:shadow-[0_0_20px_rgba(200,158,98,0.5)] transition-shadow duration-300"></div>
             </div>
             <div className="hidden sm:block">
-              <span className={`block font-bold text-xl md:text-2xl leading-none tracking-tighter font-serif transition-colors duration-300 ${isScrolled ? 'text-primary' : 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]'
+              <span className={`block font-bold text-xl md:text-2xl leading-none tracking-tighter font-serif transition-colors duration-300 ${isSolid ? 'text-primary' : 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]'
                 }`}>
                 B5 EVENTORY
               </span>
@@ -62,7 +65,7 @@ const Navbar = () => {
                 to={link.path}
                 className={`text-sm font-bold tracking-wide transition-all duration-300 relative group ${isActive(link.path)
                     ? 'text-accent'
-                    : (isScrolled ? 'text-primary hover:text-accent' : 'text-white hover:text-accent drop-shadow-md')
+                    : (isSolid ? 'text-primary hover:text-accent' : 'text-white hover:text-accent drop-shadow-md')
                   }`}
               >
                 {link.name.toUpperCase()}

@@ -2,8 +2,8 @@ import React from 'react';
 
 const StatsRibbon = () => {
   const stats = [
-    { number: '500+', label: 'Events Delivered' },
-    { number: '10+', label: 'Years of Excellence' },
+    { number: '100+', label: 'Events Delivered' },
+    { number: '4+', label: 'Years of Excellence' },
     { number: '98%', label: 'Happy Couples' },
     { number: '15+', label: 'Venue Partners' }
   ];

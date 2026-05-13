@@ -121,7 +121,7 @@ const PortfolioPage = () => {
           <div className="mt-32 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <span className="text-accent font-bold text-xs tracking-[3px] uppercase mb-4 block">OUR PHILOSOPHY</span>
-              <h2 className="text-4xl md:text-5xl font-heading text-primary mb-8">The BE5 Signature</h2>
+              <h2 className="text-4xl md:text-5xl font-heading text-primary mb-8">The B5 Signature</h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
                 We don't just plan events; we curate atmospheres. Our signature style blends **timeless elegance** with **modern editorial precision**. 
               </p>
@@ -140,7 +140,7 @@ const PortfolioPage = () => {
               <div className="aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl">
                 <img 
                   src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" 
-                  alt="BE5 Signature Style" 
+                  alt="B5 Signature Style" 
                   className="w-full h-full object-cover"
                 />
               </div>

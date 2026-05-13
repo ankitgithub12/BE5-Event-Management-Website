@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
+import { Users, Trophy, Calendar, Star, Quote } from 'lucide-react';
+import SocialGrid from '../components/SocialGrid/SocialGrid';
 
 const PortfolioPage = () => {
   const [filter, setFilter] = useState('all');
@@ -114,9 +116,82 @@ const PortfolioPage = () => {
               <p className="text-2xl text-gray-400">No projects found in this category yet.</p>
             </div>
           )}
+
+          {/* Signature Style - UNIQUE SECTION */}
+          <div className="mt-32 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <span className="text-accent font-bold text-xs tracking-[3px] uppercase mb-4 block">OUR PHILOSOPHY</span>
+              <h2 className="text-4xl md:text-5xl font-heading text-primary mb-8">The BE5 Signature</h2>
+              <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                We don't just plan events; we curate atmospheres. Our signature style blends **timeless elegance** with **modern editorial precision**. 
+              </p>
+              <div className="grid grid-cols-2 gap-8 mt-12">
+                <div>
+                  <h4 className="text-primary font-bold text-lg mb-2">Bespoke Design</h4>
+                  <p className="text-gray-500 text-sm">Every element is custom-crafted to reflect your unique personality.</p>
+                </div>
+                <div>
+                  <h4 className="text-primary font-bold text-lg mb-2">Seamless Flow</h4>
+                  <p className="text-gray-500 text-sm">We choreograph the event so every moment transitions perfectly.</p>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" 
+                  alt="BE5 Signature Style" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -top-10 -right-10 w-64 h-64 border-2 border-accent/20 rounded-full -z-10"></div>
+            </div>
+          </div>
+
+          {/* Event Spotlight (Case Study) - UNIQUE SECTION */}
+          <div className="mt-40">
+            <div className="bg-gray-900 rounded-[4rem] overflow-hidden shadow-2xl">
+              <div className="grid grid-cols-1 lg:grid-cols-2">
+                <div className="p-12 md:p-20 flex flex-col justify-center">
+                  <span className="bg-accent/20 text-accent px-4 py-1 rounded-full text-[10px] font-black tracking-widest uppercase self-start mb-6">EVENT SPOTLIGHT</span>
+                  <h2 className="text-4xl md:text-5xl font-heading text-white mb-8">The Udaipur Heritage Gala</h2>
+                  
+                  <div className="space-y-8 mb-10">
+                    <div>
+                      <h4 className="text-accent font-bold uppercase tracking-widest text-xs mb-2">The Challenge</h4>
+                      <p className="text-white/70 text-sm">Transforming a 400-year-old palace courtyard into a modern tech-integrated gala while preserving heritage integrity.</p>
+                    </div>
+                    <div>
+                      <h4 className="text-accent font-bold uppercase tracking-widest text-xs mb-2">The Solution</h4>
+                      <p className="text-white/70 text-sm">Custom 3D mapping on palace walls, invisible sound engineering, and a floating stage that didn't touch a single historic stone.</p>
+                    </div>
+                  </div>
+                  
+                  <button className="border-2 border-white/20 text-white hover:bg-white/10 px-8 py-3 rounded-full font-bold transition-all self-start">
+                    View Full Gallery
+                  </button>
+                </div>
+                <div className="h-[400px] lg:h-auto">
+                  <img 
+                    src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80" 
+                    alt="Udaipur Gala Case Study" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Link */}
+          <div className="mt-32 text-center bg-accent/5 rounded-[3rem] p-12 border border-accent/20">
+            <h2 className="text-3xl font-heading text-primary mb-6">Inspired by our work?</h2>
+            <p className="text-gray-600 mb-10 max-w-xl mx-auto">Let's collaborate to create your next unforgettable experience. Our team is ready to bring your vision to life.</p>
+            <a href="/contact" className="bg-primary text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-accent transition-colors shadow-lg">Start Your Project</a>
+          </div>
         </div>
       </main>
 
+      <SocialGrid />
       <Footer />
     </div>
   );

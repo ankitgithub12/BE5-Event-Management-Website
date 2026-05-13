@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import { Link } from 'react-router-dom';
-import { Check, X, ChevronDown, ChevronUp } from 'lucide-react';
+import { Check, X, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 
 const PackagesPage = () => {
   const [isTableExpanded, setIsTableExpanded] = useState(false);
@@ -198,6 +198,75 @@ const PackagesPage = () => {
                 </div>
               </div>
             )}
+          </div>
+
+          {/* Ala-Carte Add-ons - UNIQUE SECTION */}
+          <div className="mt-32">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-serif text-primary mb-4">Elevate Your Event</h2>
+              <p className="text-gray-500 italic">Personalize your package with these signature add-on services.</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { name: 'Drone Cinematography', price: '₹25,000', desc: '4K aerial shots of your venue and ceremony.' },
+                { name: 'Live Acoustic Band', price: '₹45,000', desc: 'Soulful live music for your reception or dinner.' },
+                { name: 'Themed Photo Booth', price: '₹15,000', desc: 'Custom props and instant print services.' },
+                { name: 'Celebrity MUA', price: '₹35,000', desc: 'Premium makeup services for the bride and family.' },
+                { name: 'Pyrotechnic Display', price: '₹20,000', desc: 'Cold fire entries and grand stage sparkles.' },
+                { name: 'Virtual Streaming', price: '₹12,000', desc: 'Live HD stream for guests who can\'t travel.' },
+                { name: 'Custom Mixology Bar', price: '₹30,000', desc: 'Signature cocktails themed to your event.' },
+                { name: 'Premium Guest Kit', price: '₹8,000', desc: 'Handcrafted welcome hampers for outstation guests.' },
+              ].map((addon, idx) => (
+                <div key={idx} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                  <h4 className="text-lg font-bold text-primary mb-1 group-hover:text-[#C5A06B] transition-colors">{addon.name}</h4>
+                  <div className="text-[#C5A06B] font-bold text-sm mb-4">{addon.price}</div>
+                  <p className="text-gray-500 text-xs leading-relaxed flex-grow">{addon.desc}</p>
+                  <button className="mt-6 text-[10px] font-black tracking-widest uppercase text-primary/40 group-hover:text-primary transition-colors flex items-center gap-2">
+                    ADD TO PACKAGE <ArrowRight size={12} />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="mt-32">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-serif text-primary mb-4">Frequently Asked Questions</h2>
+              <p className="text-gray-500 italic">Common queries about our booking process and services.</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {[
+                { 
+                  q: "How early should we book our event?", 
+                  a: "We recommend booking at least 6-8 months in advance for weddings and 2-3 months for corporate events to ensure availability of your preferred date and venue." 
+                },
+                { 
+                  q: "Can we customize the existing packages?", 
+                  a: "Absolutely! Our packages serve as a starting point. We can tailor every aspect to match your specific requirements and vision." 
+                },
+                { 
+                  q: "Do you handle outstation or destination weddings?", 
+                  a: "Yes, we specialize in destination weddings across India and international locations. Our team handles all travel and logistics for the crew and vendors." 
+                },
+                { 
+                  q: "What is your payment and cancellation policy?", 
+                  a: "We require a 25% booking amount to secure the date. The remaining payments are structured in milestones. Cancellation policies vary based on the proximity to the event date." 
+                }
+              ].map((faq, idx) => (
+                <div key={idx} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="text-lg font-bold text-primary mb-3 flex items-start gap-3">
+                    <span className="text-[#C5A06B]">Q.</span>
+                    {faq.q}
+                  </h4>
+                  <p className="text-gray-600 text-sm leading-relaxed pl-7">
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="mt-20 text-center bg-primary rounded-[3rem] p-12 md:p-20 relative overflow-hidden">

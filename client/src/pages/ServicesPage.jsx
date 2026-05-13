@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
-import { Camera, Video, Music, Tent, Users, Briefcase, PartyPopper, CheckCircle, ArrowRight, Heart, Star, Sparkles } from 'lucide-react';
+import { Camera, Video, Music, Tent, Users, Briefcase, PartyPopper, CheckCircle, Check, ArrowRight, Heart, Star, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ServicesPage = () => {
@@ -171,6 +171,61 @@ const ServicesPage = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Custom Service Selector - UNIQUE SECTION */}
+        <div className="container mx-auto px-4 max-w-7xl mt-32">
+          <div className="bg-white rounded-[3rem] p-12 md:p-20 shadow-2xl border border-gray-100">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <span className="text-accent font-bold text-xs tracking-[3px] uppercase mb-4 block">FLEXIBLE SOLUTIONS</span>
+                <h2 className="text-4xl md:text-5xl font-heading text-primary mb-6">Build Your Perfect Event</h2>
+                <p className="text-gray-600 text-lg mb-10">Select the priorities that matter most to you, and we'll show you how we can tailor our expertise to match.</p>
+                
+                <div className="space-y-4">
+                  {[
+                    { label: 'Exotic Floral & Decor', icon: <Sparkles size={20} /> },
+                    { label: 'Gourmet Catering & Bar', icon: <CheckCircle size={20} /> },
+                    { label: 'Cinematic Photography', icon: <Camera size={20} /> },
+                    { label: 'Celebrity Entertainment', icon: <Music size={20} /> },
+                    { label: 'Seamless Logistics', icon: <Briefcase size={20} /> },
+                  ].map((item, idx) => (
+                    <label key={idx} className="flex items-center gap-4 p-4 rounded-2xl border border-gray-100 hover:border-accent hover:bg-accent/5 transition-all cursor-pointer group">
+                      <input type="checkbox" className="w-5 h-5 accent-accent" />
+                      <span className="text-primary font-bold group-hover:text-accent flex items-center gap-2">
+                        {item.icon} {item.label}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              <div className="relative">
+                <div className="bg-primary p-10 rounded-[2.5rem] text-white shadow-2xl">
+                  <h3 className="text-2xl font-heading mb-6">Bespoke Proposal</h3>
+                  <p className="text-white/70 mb-8">Tell us your vision and our experts will craft a personalized quote within 24 hours.</p>
+                  <div className="space-y-6 mb-10">
+                    <div className="flex justify-between border-b border-white/10 pb-4">
+                      <span>Response Time</span>
+                      <span className="text-accent font-bold">Fast-Track</span>
+                    </div>
+                    <div className="flex justify-between border-b border-white/10 pb-4">
+                      <span>Customization</span>
+                      <span className="text-accent font-bold">Unlimited</span>
+                    </div>
+                    <div className="flex justify-between border-b border-white/10 pb-4">
+                      <span>Consultation</span>
+                      <span className="text-accent font-bold">Complimentary</span>
+                    </div>
+                  </div>
+                  <Link to="/contact" className="w-full bg-accent text-primary py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-white transition-all">
+                    Start Customizing <ArrowRight size={18} />
+                  </Link>
+                </div>
+                {/* Decorative element */}
+                <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl -z-10"></div>
+              </div>
+            </div>
           </div>
         </div>
 

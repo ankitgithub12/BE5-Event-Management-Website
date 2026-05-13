@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
+import SocialGrid from '../components/SocialGrid/SocialGrid';
 import { MapPin, Phone, Mail, MessageCircle, CalendarDays, CheckCircle2, X } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -235,8 +236,67 @@ const ContactPage = () => {
           </div>
         </div>
 
+        {/* Meet the Leads - UNIQUE SECTION */}
+        <div className="container mx-auto px-4 max-w-6xl mt-32">
+          <div className="text-center mb-16">
+            <span className="text-accent font-bold text-xs tracking-[3px] uppercase mb-4 block">THE PEOPLE BEHIND THE MAGIC</span>
+            <h2 className="text-4xl font-heading text-primary">Meet Our Lead Planners</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {[
+              { 
+                name: "Anjali Sharma", 
+                role: "Senior Wedding Architect", 
+                desc: "With 8 years in luxury weddings, Anjali specializes in traditional Indian heritage events.",
+                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+              },
+              { 
+                name: "Vikram Malhotra", 
+                role: "Corporate Experience Lead", 
+                desc: "Expert in technical logistics and large-scale corporate gala productions.",
+                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80"
+              },
+              { 
+                name: "Priya Das", 
+                role: "Design & Decor Specialist", 
+                desc: "Our creative visionary who turns vague moodboards into stunning visual realities.",
+                image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80"
+              }
+            ].map((lead, idx) => (
+              <div key={idx} className="group">
+                <div className="aspect-[3/4] rounded-3xl overflow-hidden mb-6 relative">
+                  <img 
+                    src={lead.image} 
+                    alt={lead.name} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <h4 className="text-xl font-bold text-primary mb-1">{lead.name}</h4>
+                <p className="text-accent font-semibold text-xs tracking-wider uppercase mb-3">{lead.role}</p>
+                <p className="text-gray-500 text-sm leading-relaxed">{lead.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Banner */}
+        <div className="container mx-auto px-4 max-w-6xl mt-32">
+          <div className="bg-primary p-12 md:p-20 rounded-[4rem] text-center relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+            <h2 className="text-3xl md:text-5xl font-heading text-white mb-6 relative z-10">Prefer a Direct Call?</h2>
+            <p className="text-white/60 mb-10 max-w-xl mx-auto text-lg relative z-10">Skip the form and talk directly to our concierge team for immediate assistance.</p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
+              <a href="tel:+912942428800" className="bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-accent hover:text-white transition-all shadow-xl">
+                Call +91 294 242 8800
+              </a>
+            </div>
+          </div>
+        </div>
       </main>
 
+      <SocialGrid />
       <Footer />
     </div>
   );

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import { Users, Trophy, Calendar, Star, Quote } from 'lucide-react';
@@ -167,9 +168,9 @@ const PortfolioPage = () => {
                     </div>
                   </div>
                   
-                  <button className="border-2 border-white/20 text-white hover:bg-white/10 px-8 py-3 rounded-full font-bold transition-all self-start">
+                  <Link to="/gallery" className="inline-block border-2 border-white/20 text-white hover:bg-white/10 px-8 py-3 rounded-full font-bold transition-all self-start text-center">
                     View Full Gallery
-                  </button>
+                  </Link>
                 </div>
                 <div className="h-[400px] lg:h-auto">
                   <img 

@@ -5,6 +5,7 @@ import PackagesPage from './pages/PackagesPage';
 import CustomPlanner from './pages/CustomPlanner';
 import PortfolioPage from './pages/PortfolioPage';
 import ContactPage from './pages/ContactPage';
+import GalleryPage from './pages/GalleryPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/packages" element={<PackagesPage />} />
         <Route path="/planner" element={<CustomPlanner />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Router>

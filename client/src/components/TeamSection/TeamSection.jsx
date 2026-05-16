@@ -29,14 +29,6 @@ const TeamSection = () => {
       specialty: 'Corporate & Galas',
       events: '80+ corporate shows',
     },
-    {
-      name: 'Sneha Joshi',
-      role: 'Photography & Media Lead',
-      bio: 'Award-winning cinematographer specialising in emotion-driven films. Every frame she captures tells a love story.',
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
-      specialty: 'Photography & Films',
-      events: '300+ shoots',
-    },
   ];
 
   const containerVariants = {
@@ -96,7 +88,7 @@ const TeamSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {team.map((member, index) => (
             <motion.div
